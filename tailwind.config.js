@@ -15,6 +15,7 @@ export default {
         primary: "#e1bee7",
         secondary: "#ba68c8",
         brandDark: "#8e24aa",
+        rock:"#a5d6a7",
       },
       container: {
         center: true,

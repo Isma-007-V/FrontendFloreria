@@ -10,6 +10,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home"
 import Services from "./components/Services/Services.jsx"
 import Banner from "./components/Banner/Banner"
+import AppStore from './components/AppStore/AppStore.jsx'
+import Testimonials from './components/Testimonials/Testimonials.jsx'
+
+import Footer from './components/Footer/Footer.jsx'
+
+
 
 
 const App = () => {
@@ -27,6 +33,9 @@ delay: 100,
     <Home/>
     <Services/>
     <Banner/>
+    <AppStore/>
+    <Testimonials/>
+    <Footer/>
      </div>)
 }
 

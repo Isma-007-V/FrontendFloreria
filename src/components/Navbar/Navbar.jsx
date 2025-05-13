@@ -20,7 +20,7 @@ const Menus = [
     {
         id: 3,
         name: "About",
-        link: "/#about"
+        link: "/#footer"
     }
 ]
 
@@ -31,15 +31,19 @@ const Navbar = () =>{
            <div className="flex justify-between items-center gap-4">
             {           }
 
-            <div>
+            <div data-aos='fade_down' data-aos-once ='true'>
                 <a href="#" className="font-bold text-2xl sm:text-3xl flex justify-center items-center gap-2  tracking-wider font-cursive">
                 <img src={Logo} alt="Logo" className="w-14"/>
-                Floreria Velázquez
+                Velázquez Flower Shop 
                 </a> 
             </div>
 
             {           }
-            <div className="flex justify-between items-center gap-4">
+            <div 
+            data-aos="fade-down"
+            data-aos-once="true"
+            data-aos-delay="300"
+            className="flex justify-between items-center gap-4">
                 <ul className="hidden sm:flex items-center gap-4">
                     {
                         Menus.map((data, index)=>(
