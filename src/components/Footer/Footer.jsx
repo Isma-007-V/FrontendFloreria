@@ -11,6 +11,8 @@ import HeroImg from "../../assets/website/flores10.png"
 // eslint-disable-next-line no-unused-vars
 import { useState } from 'react'
 
+import miVideo from "../../assets/website/Technology_for_Life.mp4"
+
 const FooterLinks = [
   {
     title: "Home",
@@ -41,7 +43,7 @@ const FooterLinks = [
 const FooterLinksGI = [
   {
     title: "Our Story",
-    link: "/#",
+    
   }, 
   {
     title: "Flower Tips",
@@ -63,7 +65,8 @@ const bgImage = {
 
 
 const Footer = () => {
-  const [openPopup, setOpenPopup] = useState(false)
+  const [openPopup, setOpenPopup] = useState(null);
+  
   return (
     <div style={bgImage} className='text-white'id='footer'>
       <div className='bg-black/40 min-h-[400px]' >
@@ -118,7 +121,8 @@ const Footer = () => {
                 {FooterLinksGI.map((data, index) => (
                   <li key={index}>
                     <a className='inline-block hover:scale-105 duration-200'
-                    href={data.link}>{data.title}</a> 
+                    href={data.link}
+                     onClick={() => setOpenPopup("modal2")}>{data.title}</a> 
                   </li>
                 ))}
               </ul>
@@ -153,7 +157,7 @@ const Footer = () => {
                   duration-200" />
                 </a>
                 <a 
-                onClick={()=>setOpenPopup(true)}>
+                onClick={() => setOpenPopup("modal1")}>
                   <GiPositionMarker className="text-3xl 
                   inline-block hover:scale-105 
                   duration-200" />
@@ -164,9 +168,9 @@ const Footer = () => {
             </div>
             {/*Modal nuevo*/}
             {
-               openPopup &&
+               openPopup === "modal1" && (
                <div className="modal fixed w-full h-full top-0 left-0 flex items-center justify-center"
-               onClick={() => setOpenPopup(false)}>
+              >
    
                <div className="fixed inset-0 modal-overlay absolute w-full h-full bg-gray-900 opacity-50 "></div>
                 {/*Modal blanca o chico */}
@@ -219,7 +223,7 @@ const Footer = () => {
    
                        <div className="mt-4 flex justify-end">
                            <button className="modal-close px-4 bg-gray-100 p-3 rounded-lg text-black hover:bg-gray-200 font-cursive"
-                           onClick={() => setOpenPopup(false)}>Close</button>                          
+                           onClick={() => setOpenPopup(null)}>close</button>                          
                        </div>
 
                    </div>
@@ -227,7 +231,52 @@ const Footer = () => {
    
                </div>
                 
-            }
+            )}
+
+            {
+              openPopup === "modal2" &&  (
+              <div className="modal fixed w-full h-full top-0 left-0 flex items-center justify-center"
+              >
+
+    
+                <div className="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+                <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                  
+                    <div className="modal-content py-4 text-left px-6">
+                        
+                            <p className="text-2xl font-bold text-black">Modal Title</p>
+                          
+                                <div className="flex justify-center">
+                                  <div className="rounded-lg shadow-lg bg-white max-w-sm">
+                                      <iframe
+                                      className="w-full h-auto max-w-full overflow-auto rounded-t-lg controls"
+                                      src={miVideo}
+                                      type="video/mp4" 
+                                      frameBorder={0}
+                                      allow='autoplay; encrypted-media'
+                                      allowfullscreen
+                                      title='video'
+                                    />
+                                      <div className="p-6">
+                                          <h5 className="text-gray-900 text-xl font-medium mb-2">Video Card</h5>
+                                          <p className="text-gray-700 text-base mb-4">
+                                              Some quick example text to build on the card title and make up the bulk of the 
+                                              content.
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+
+                        <div className="mt-4 flex justify-end">
+                            <button className="modal-close px-4 bg-gray-100 p-3 rounded-lg text-black hover:bg-gray-200"
+                            onClick={() => setOpenPopup(null)}>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+            )}
             
           </div>
 
